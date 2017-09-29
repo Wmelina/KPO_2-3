@@ -11,13 +11,6 @@ namespace QueueRealisation_Test
     [TestFixture]
     public class Class1
     {
-        [Test()]
-        [ExpectedException(typeof(Exception))]
-        public void Test_pop_IsEmpty()
-        {
-            QueueRealisation<int> asd = new QueueRealisation<int>();
-            int act = asd.Pop();
-        }
 
         [Test()]
         public void Test_IsEmpty()
