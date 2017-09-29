@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KPO_FirstLab
 {
-    interface IQueueRealisation<T>
+  public interface IQueueRealisation<T>
     {
         void Push(T take);
         T Pop();

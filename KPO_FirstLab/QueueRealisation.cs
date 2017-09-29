@@ -9,12 +9,12 @@ namespace KPO_FirstLab
     public class QueueRealisation<T> : IQueueRealisation<T>
     {
 
-        private T[] Que = new T[10];
-        private int count = 0;
+        public T[] Que = new T[10];
+        public int count = 0;
 
         public T Pop()
         {
-            if (Que.Length == 0)
+            if (count == 0)
             {
                 throw new Exception("massive is empty");
             }
