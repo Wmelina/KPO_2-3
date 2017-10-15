@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace KPO_FirstLab
 {
-    public class QueueRealisation<T> : IQueueRealisation<T>
+    public class QueueRealisation<T> : IQueueRealisation<T>, IEnumerable
     {
 
         public T[] Que = new T[10];
@@ -61,6 +62,11 @@ namespace KPO_FirstLab
         public T TakeTop()
         {
             return Que[0];
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return Que.GetEnumerator();
         }
     }
 }
