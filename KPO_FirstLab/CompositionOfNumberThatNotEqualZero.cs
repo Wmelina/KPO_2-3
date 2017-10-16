@@ -26,8 +26,7 @@ namespace KPO_FirstLab
         public int asd(QueueRealisation<int> queue)
         {
             int cmpstn = 1;
-            IEnumerable<int> queueWithPositiveNumbers = queue.Que.Skip(0); 
-            // also we can use this, but it's not so reasonable  - queue.Que.Where(x => x != 0);
+            IEnumerable<int> queueWithPositiveNumbers = queue.Que.Where(x => x != 0); // OH THAT WAS BAD IDEA, NEVERMIND
             foreach (int item in queueWithPositiveNumbers) { cmpstn *= item;}
             return cmpstn;
         }
