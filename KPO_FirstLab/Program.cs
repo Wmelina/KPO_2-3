@@ -18,6 +18,10 @@ namespace KPO_FirstLab
             asd.Push(4);
             CompositionOfNumberThatNotEqualZero kek = new CompositionOfNumberThatNotEqualZero();
             Console.WriteLine(kek.Action(asd));
+            Console.WriteLine(kek.asd(asd));
+            asd.Push(0);
+            Console.WriteLine(kek.Action(asd));
+            Console.WriteLine(kek.asd(asd));
             Console.ReadKey();
         }
     }

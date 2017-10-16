@@ -15,7 +15,7 @@ namespace KPO_FirstLab
 
         public T Pop()
         {
-            if (count == 0)
+            if (IsEmpty()) //fixed with method (there was count checker)
             {
                 throw new Exception("massive is empty");
             }
@@ -61,12 +61,18 @@ namespace KPO_FirstLab
 
         public T TakeTop()
         {
-            return Que[0];
+            if (IsEmpty()) // also fixed
+            {
+                throw new Exception("massive is empty");
+            }
+            else
+            {
+                return Que[0];
+            }
         }
-
-        public IEnumerator GetEnumerator()
-        {
-            return Que.GetEnumerator();
+            public IEnumerator GetEnumerator()
+            {
+                return Que.GetEnumerator();
+            }
         }
     }
-}
