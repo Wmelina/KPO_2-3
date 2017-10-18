@@ -10,7 +10,7 @@ namespace KPO_FirstLab
     public class QueueRealisation<T> : IQueueRealisation<T>, IEnumerable
     {
 
-        public T[] Que = new T[10];
+        public T[] Que = new T[1];
         public int count = 0;
 
         public T Pop()
@@ -27,7 +27,15 @@ namespace KPO_FirstLab
                     Que[i] = Que[i + 1];
                 }
                 count--;
-                return savedElement;
+                if (Que.Length == 1)
+                {
+                    return savedElement;
+                }
+                else
+                {
+                    Array.Resize(ref Que, Que.Length - 1);
+                    return savedElement;
+                }
             }
 
         }
@@ -36,7 +44,7 @@ namespace KPO_FirstLab
         {
             if (Que.Length == count)
             {
-                Array.Resize(ref Que, Que.Length * 2);
+                Array.Resize(ref Que, Que.Length + 1);
                 Que[count] = take;
                 count++;
             }
