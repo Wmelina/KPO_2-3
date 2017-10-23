@@ -13,22 +13,22 @@ namespace KPO_FirstLab
 {
     class WorkWithData
     {
-        public void IDKH2N(QueueRealisation<Person> peeerson)
+        public void IDKH2N(QueueRealisation<Person> peeerson) 
         {
             int countCheck = 0;
             Person[] people = new Person[peeerson.count];
-            foreach (Person item in peeerson)
+            foreach (Person item in peeerson) 
             {
                 people[countCheck] = item;
                 countCheck++;
             }
-            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(Person[]));
-
+           
+            DataContractJsonSerializer jsonFormatter = new DataContractJsonSerializer(typeof(Person[])); 
             using (FileStream fs = new FileStream("people.json", FileMode.OpenOrCreate))
             {
                 jsonFormatter.WriteObject(fs, people);
             }
-
+           
             using (FileStream fs = new FileStream("people.json", FileMode.OpenOrCreate))
             {
                 Person[] newpeople = (Person[])jsonFormatter.ReadObject(fs);
@@ -42,6 +42,7 @@ namespace KPO_FirstLab
             Console.ReadLine();
         }
     }
+    
     [DataContract]
     public class Person
     {

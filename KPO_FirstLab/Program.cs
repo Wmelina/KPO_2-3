@@ -10,6 +10,7 @@ namespace KPO_FirstLab
     {
         static void Main(string[] args)
         {
+            //тут я не комментировал, но тут всё интуитивно понятно. добавление элементов в нашу очередь и выполнений действий с ней
             QueueRealisation<int> asd = new QueueRealisation<int>();
             Console.WriteLine(asd.IsEmpty());
             asd.Push(1);
@@ -36,10 +37,10 @@ namespace KPO_FirstLab
             /////\\\\\
             CompositionOfNumberThatNotEqualZero kek = new CompositionOfNumberThatNotEqualZero();
             Console.WriteLine(kek.Action(asd));
-            Console.WriteLine(kek.asd(asd));
+            Console.WriteLine(kek.UpdatedAction(asd));
             asd.Push(0);
             Console.WriteLine(kek.Action(asd));
-            Console.WriteLine(kek.asd(asd));
+            Console.WriteLine(kek.UpdatedAction(asd));
             WorkWithData s = new WorkWithData();
             Person fi = new Person("Сёма", 12);
             Person sec = new Person("Саша", 17);

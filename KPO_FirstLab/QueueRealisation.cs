@@ -39,7 +39,6 @@ namespace KPO_FirstLab
             }
 
         }
-
         public void Push(T take)
         {
             if (Que.Length == count)

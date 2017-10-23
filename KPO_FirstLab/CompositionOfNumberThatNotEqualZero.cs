@@ -9,7 +9,6 @@ namespace KPO_FirstLab
 {
     class CompositionOfNumberThatNotEqualZero
     {
-        
         public int Action(QueueRealisation<int> queue)
         {
              int cmpstn = 1;
@@ -23,12 +22,14 @@ namespace KPO_FirstLab
             return cmpstn;
         }
         //used anonymous method and pipeline. completed 4 lab 
-        public int asd(QueueRealisation<int> queue)
+        public int UpdatedAction(QueueRealisation<int> queue)
         {
             int cmpstn = 1;
-            IEnumerable<int> queueWithPositiveNumbers = queue.Que.Where(x => x != 0); // OH THAT WAS BAD IDEA, NEVERMIND
-            foreach (int item in queueWithPositiveNumbers) { cmpstn *= item;}
+            IEnumerable<int> queueWithPositiveNumbers = queue.Que.Where(x => x != 0); 
+            foreach (int item in queueWithPositiveNumbers) { cmpstn *= item;} 
+                                                                             
             return cmpstn;
         }
+
     }
 }
