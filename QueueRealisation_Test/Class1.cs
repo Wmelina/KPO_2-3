@@ -13,12 +13,12 @@ namespace QueueRealisation_Test
     {
 
         [Test()]
-        public void Test_IsEmpty()
+        [ExpectedException(typeof(Exception))]
+        public void Test1()
         {
             QueueRealisation<int> asd = new QueueRealisation<int>();
-            bool expec = true;
-            bool act = asd.IsEmpty();
-            Assert.AreEqual(expec, act);
+            int act = asd.Pop();
+
 
         }
         [Test()]
@@ -89,6 +89,45 @@ namespace QueueRealisation_Test
             act = asd.TakeTop();
             Assert.AreEqual(expec, act);
 
+        }
+
+        [Test()]
+        public void Test_IEnumerable()
+        {
+            QueueRealisation<int> asd = new QueueRealisation<int>();
+            asd.Push(4);
+            asd.Push(2);
+            asd.Push(6);
+
+            string result = "";
+
+            foreach (int x in asd)
+            {
+                result += x.ToString();
+            }
+
+            string expeted = "426";
+
+            Assert.AreEqual(expeted, result);
+        }
+
+
+        [Test()]
+        public void Test_Clone()
+        {
+            QueueRealisation<int> asd = new QueueRealisation<int>();
+            asd.Push(4);
+            asd.Push(2);
+            asd.Push(6);
+
+            QueueRealisation<int> act = (QueueRealisation<int>)asd.Clone();
+
+            asd.Pop();
+            asd.Pop();
+
+            Assert.AreEqual(1, asd.count);
+            Assert.AreEqual(3, act.count);
+            Assert.AreEqual(6, act.Pop());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace KPO_FirstLab
 {
-    public class QueueRealisation<T> : IQueueRealisation<T>, IEnumerable
+    public class QueueRealisation<T> : IQueueRealisation<T>, IEnumerable<T>, ICloneable
     {
 
         public T[] Que = new T[1];
@@ -78,9 +78,22 @@ namespace KPO_FirstLab
                 return Que[0];
             }
         }
-            public IEnumerator GetEnumerator()
-            {
-                return Que.GetEnumerator();
-            }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < count; ++i)
+
+                yield return Que[i]; // 2
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)this).GetEnumerator();
+        }
+
+        public object Clone() //поверхностное (неглубокое) копирование
+        {
+            return this.MemberwiseClone();
+        }
+    }
     }
