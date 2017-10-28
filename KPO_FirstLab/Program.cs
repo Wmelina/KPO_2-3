@@ -49,7 +49,8 @@ namespace KPO_FirstLab
             persons.Push(fi);
             persons.Push(sec);
             persons.Push(thi);
-            s.IDKH2N(persons);
+            s.Serialization(persons);
+            QueueRealisation<Person> newQueue = s.Deserialization("person.json");
             Console.ReadKey();
         }
     }
